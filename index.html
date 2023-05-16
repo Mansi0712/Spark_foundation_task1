@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Banking System</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        
+        .form-group button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #080b6d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #d3ecf7;
+            color: #252525;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YOLO Bank</h1>
+        <div class="message">
+            <p>Welcome to our Spark foundation bank.Please fill out the form below to perform transactions.</p>
+        </div>
+        <form id="transactionForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="transactionType">Transaction Type:</label>
+                <select id="transactionType">
+                    <option value="deposit">Deposit</option>
+                    <option value="withdraw">Withdraw</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("transactionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById("name").value;
+            var accountNumber = document.getElementById("accountNumber").value;
+            var amount = document.getElementById("amount").value;
+            var transactionType = document.getElementById("transactionType").value;
+            
+            var message = "Transaction successful!";
+            document.querySelector(".message").innerHTML = '<p>' + message + '</p>';
+            
+            // Reset the form
+            document.getElementById("transactionForm").reset();
+        });
+    </script>
+</body>
+</html>
